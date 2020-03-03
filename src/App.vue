@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import FAQs from './components/FAQs.vue'
+// import FAQs from './components/FAQs.vue'
 
 export default {
   name: 'App',
-  components: {
-  }
+  // components: {
+  // }
 }
 </script>
 
