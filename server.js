@@ -1,14 +1,15 @@
 //==================
 //DEPENDENCIES
 //===================
+const morgan = require('morgan');
 const express = require('express');
 const session = require('express-session')
 require('dotenv').config()
 const app = express();
+
 //====================
 //PORT
 //====================
-
 const PORT = process.env.PORT || 3000;
 
 //===================
@@ -18,11 +19,20 @@ const PORT = process.env.PORT || 3000;
 //==================
 // MIDDLEWARE
 //==================
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(session({
+	secret: process.env.SECRET,
+	resave: false,
+	saveUninitialized: false
+}))
+
+app.use(morgan('tiny'));
 
 //==================
 // CONTROLLERS
 //==================
-
 // const usersController = require('./controllers/users.js')
 // app.use('/users', usersController)
 
@@ -32,5 +42,4 @@ const PORT = process.env.PORT || 3000;
 //==================
 // LISTENER
 //==================
-
 app.listen(PORT, () => console.log( 'Listening on port:', PORT));
