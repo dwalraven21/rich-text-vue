@@ -9,8 +9,24 @@
 
 export default {
   name: 'App',
-  // components: {
-  // }
+  data() {
+        return {
+            metaTitle:
+              "How to add Rich Text to Your Vue App",
+        }
+    },
+    methods: {
+        setTitle() {
+            this.metaTitle = this.$route.meta.title
+        }
+    },
+    watch: {
+        $route: "setTitle"
+    },
+    mounted() {
+        this.setTitle()
+    }
+
 }
 </script>
 
