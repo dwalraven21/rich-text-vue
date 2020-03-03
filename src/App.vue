@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <FAQs/>
+    <router-view v-title="metaTitle" />
   </div>
 </template>
 
@@ -10,7 +10,6 @@ import FAQs from './components/FAQs.vue'
 export default {
   name: 'App',
   components: {
-    FAQs
   }
 }
 </script>
