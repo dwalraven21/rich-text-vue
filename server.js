@@ -1,45 +1,17 @@
-//==================
-//DEPENDENCIES
-//===================
-const morgan = require('morgan');
-const express = require('express');
-const session = require('express-session')
-require('dotenv').config()
-const app = express();
+const express = require('express')
+const serveStatic = require('serve-static')
+const path = require('path')
 
-//====================
-//PORT
-//====================
-const PORT = process.env.PORT || 3000;
+const app = express()
 
-//===================
-//DATABASE
-//===================
+//here we are configuring dist to serve app files
+app.use('/', serveStatic(path.join(__dirname, '/dist')))
 
-//==================
-// MIDDLEWARE
-//==================
-app.use(express.static('public'));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(session({
-	secret: process.env.SECRET,
-	resave: false,
-	saveUninitialized: false
-}))
+// this * route is to serve project on different page routes except root `/`
+app.get(/.*/, function (req, res) {
+	res.sendFile(path.join(__dirname, '/dist/index.html'))
+})
 
-app.use(morgan('tiny'));
-
-//==================
-// CONTROLLERS
-//==================
-// const usersController = require('./controllers/users.js')
-// app.use('/users', usersController)
-
-// const sessionsController = require('./controllers/sessions.js')
-// app.use('/sessions', sessionsController)
-
-//==================
-// LISTENER
-//==================
-app.listen(PORT, () => console.log( 'Listening on port:', PORT));
+const port = process.env.PORT || 8080
+app.listen(port)
+console.log(`app is listening on port: ${port}`)
