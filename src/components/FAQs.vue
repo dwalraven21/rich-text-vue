@@ -1,4 +1,5 @@
 <template>
+<!-- I use <main> tags to contain all my page content within the template, but you can use <div> tags or anything else. -->
     <main>
         <!-- This is where you add your script with your json-ld -->
         <script v-html="jsonld" type="application/ld+json" />
@@ -15,8 +16,8 @@
                 </div>
             </div>
         </a>
-        <p>To use rich text in a Vue.js sinlge page application, instead of adding the rich text script to the <code>index.html</code> page, you would add the json data to a Vue component. You can do this by returning a variable containing the json data. You can then add a script with <code>type='application/ld+json'</code> to your template section and use <code>v-html</code> to display the json object on the page.</p>
-        <p>You can use <a href="https://developers.google.com/search/docs/data-types/faqpage">Google's developer guides</a> for help formatting your rich text and once you've created your page, be sure to use <a href="https://search.google.com/test/rich-results">Google's Rich Results Test</a> to make sure the rich text is actually being supported on your page.</p>
+        <p>To use rich text in a Vue.js single page application, instead of adding the rich text script to the <code>index.html</code> page, you would add the json data to a Vue component like <code>FAQs.vue</code>. You can do this by returning a variable containing the json data. You can then add a script with <code>type='application/ld+json'</code> to your template section and use <code>v-html</code> to display the json object on the page.</p>
+        <p>Check out <a href="https://developers.google.com/search/docs/data-types/faqpage">Google's developer guides</a> for help formatting your rich text and once you've created your page, be sure to use <a href="https://search.google.com/test/rich-results">Google's Rich Results Test</a> to make sure the rich text is actually being supported on your page.</p>
         <div class="image-box">
             <img src="@/assets/file-struct.png" alt="The file sctructure I used for my Vue App"/>
             <img src="@/assets/script.png" alt="The script section of my component"/>
