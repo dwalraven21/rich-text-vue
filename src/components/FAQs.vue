@@ -15,7 +15,7 @@
 
         </a>
         <p>To use rich text in a Vue.js sinlge page application, instead of adding the rich text script to the <code>index.html</code> page, you would add the json data to a Vue component. You can do this by returning a variable containing the json data. You can then add a script with <code>type='application/ld+json'</code> to your template section and use <code>v-html</code> to display the json object on the page.</p>
-        <p>Test your page here to make sure it supports rich results: <a href="https://search.google.com/test/rich-results">https://search.google.com/test/rich-results</a></p>
+        <p>Google has a handy test to make sure your page supports rich results: <a href="https://search.google.com/test/rich-results">https://search.google.com/test/rich-results</a></p>
         <div class="image-box">
             <img src="@/assets/file-struct.png" alt="The file sctructure I used for my Vue App"/>
             <img src="@/assets/script.png" alt="The script section of my component"/>
